@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS Weather (
+    id         INTEGER  PRIMARY KEY AUTO_INCREMENT,
+    version INTEGER NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    temp VARCHAR(50) NOT NULL,
+    date VARCHAR(50) NOT NUll
+);
