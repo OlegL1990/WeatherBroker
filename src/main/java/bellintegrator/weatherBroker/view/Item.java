@@ -61,15 +61,15 @@ public class Item
         this.forecast = forecast;
     }
 
-    public Condition getCondition ()
-    {
+    public void setCondition (Condition condition){
+        this.condition = condition;
+    }
+
+    public Condition getCondition (){
         return condition;
     }
 
-    public void setCondition (Condition condition)
-    {
-        this.condition = condition;
-    }
+
 
     public String getDescription ()
     {

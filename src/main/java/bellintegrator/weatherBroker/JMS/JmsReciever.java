@@ -18,7 +18,7 @@ public class JmsReciever {
     @Autowired
     WeatherDao weatherDao;
 
-    @JmsListener(destination ="jms/topic/weather")
+    @JmsListener(destination ="java:/jms/topic/WeatherTopic")
     public void receiveMessage(WeatherView wv) throws JMSException {
         WeatherEntity weatherEntity = new WeatherEntity(wv);
         weatherDao.save(weatherEntity);

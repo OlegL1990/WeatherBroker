@@ -5,22 +5,24 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 @Configuration
 public class MessagingConfiguration {
 
-    private static final String DEFAULT_BROKER_URL = "tcp://localhost:61616";
 
-    private static final String TOPIC = "jms/topic/weather";
+    private static final String TOPIC = "java:/jms/topic/WeatherTopic";
 
     @Bean
-    public ActiveMQConnectionFactory connectionFactory(){
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
-        connectionFactory.setBrokerURL(DEFAULT_BROKER_URL);
+    public ActiveMQConnectionFactory connectionFactory()throws NamingException {
+        ActiveMQConnectionFactory connectionFactory = InitialContext.doLookup("java:/ConnectionFactory");
+
         return connectionFactory;
     }
 
     @Bean
-    public JmsTemplate jmsTemplate(){
+    public JmsTemplate jmsTemplate()throws NamingException{
         JmsTemplate template = new JmsTemplate();
         template.setConnectionFactory(connectionFactory());
         template.setDefaultDestinationName(TOPIC);
