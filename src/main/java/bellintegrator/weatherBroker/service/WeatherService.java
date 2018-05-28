@@ -1,17 +1,24 @@
 package bellintegrator.weatherBroker.service;
 
-import bellintegrator.weatherBroker.JMS.JmsProducer;
+import bellintegrator.weatherBroker.model.WeatherEntity;
 import bellintegrator.weatherBroker.view.WeatherView;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class WeatherService {
+import java.util.List;
 
-    @Autowired
-    JmsProducer jmsProducer;
+public interface WeatherService {
+    /**
+     * Отправить в JSM очередь сообщение
+     * содержащее weatherView
+     *
+     * @param weatherView
+     */
+    public void send(WeatherView weatherView);
 
-    public void send(WeatherView wv){
-        jmsProducer.sendMessage(wv);
-    }
+    /**
+     * Получить List<WeatherEntity> по названию города(сity)
+     *
+     *
+     * @param city
+     */
+    public List<WeatherEntity> loadByCity(String city);
 }

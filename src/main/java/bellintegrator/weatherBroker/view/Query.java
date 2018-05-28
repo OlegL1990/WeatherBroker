@@ -1,45 +1,58 @@
 package bellintegrator.weatherBroker.view;
 
-public class Query {
- private float count;
- private String created;
- private String lang;
- Results ResultsObject;
+public class Query
+{
+    private Results results;
 
+    private String count;
 
- // Getter Methods
+    private String created;
 
- public float getCount() {
-  return count;
- }
+    private String lang;
 
- public String getCreated() {
-  return created;
- }
+    public Results getResults ()
+    {
+        return results;
+    }
 
- public String getLang() {
-  return lang;
- }
+    public void setResults (Results results)
+    {
+        this.results = results;
+    }
 
- public Results getResults() {
-  return ResultsObject;
- }
+    public String getCount ()
+    {
+        return count;
+    }
 
- // Setter Methods
+    public void setCount (String count)
+    {
+        this.count = count;
+    }
 
- public void setCount(float count) {
-  this.count = count;
- }
+    public String getCreated ()
+    {
+        return created;
+    }
 
- public void setCreated(String created) {
-  this.created = created;
- }
+    public void setCreated (String created)
+    {
+        this.created = created;
+    }
 
- public void setLang(String lang) {
-  this.lang = lang;
- }
+    public String getLang ()
+    {
+        return lang;
+    }
 
- public void setResults(Results resultsObject) {
-  this.ResultsObject = resultsObject;
- }
+    public void setLang (String lang)
+    {
+        this.lang = lang;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [results = "+results+", count = "+count+", created = "+created+", lang = "+lang+"]";
+    }
 }

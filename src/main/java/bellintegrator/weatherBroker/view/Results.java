@@ -1,17 +1,22 @@
 package bellintegrator.weatherBroker.view;
-public class Results {
- Channel ChannelObject;
 
+public class Results
+{
+    private Channel channel;
 
- // Getter Methods
+    public Channel getChannel ()
+    {
+        return channel;
+    }
 
- public Channel getChannel() {
-  return ChannelObject;
- }
+    public void setChannel (Channel channel)
+    {
+        this.channel = channel;
+    }
 
- // Setter Methods
-
- public void setChannel(Channel channelObject) {
-  this.ChannelObject = channelObject;
- }
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [channel = "+channel+"]";
+    }
 }

@@ -2,7 +2,7 @@ package bellintegrator.weatherBroker.view;
 
 import java.io.Serializable;
 
-public class WeatherView implements Serializable {
+public class WeatherView  {
     Query QueryObject;
 
     @Override

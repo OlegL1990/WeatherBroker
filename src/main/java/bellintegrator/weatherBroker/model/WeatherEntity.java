@@ -1,5 +1,7 @@
 package bellintegrator.weatherBroker.model;
 
+import bellintegrator.weatherBroker.view.WeatherView;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,8 +28,8 @@ public class WeatherEntity {
         /**
          * Температура
          */
-        @Column(name = "temperature", nullable = true)
-        private Integer temp;
+        @Column(name = "temp", nullable = true,length = 50)
+        private String temp;
 
         /**
          * Дата
@@ -59,11 +61,11 @@ public class WeatherEntity {
         this.city = city;
     }
 
-    public Integer getTemp() {
+    public String getTemp() {
         return temp;
     }
 
-    public void setTemp(Integer temp) {
+    public void setTemp(String temp) {
         this.temp = temp;
     }
 
@@ -73,5 +75,11 @@ public class WeatherEntity {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public WeatherEntity(WeatherView weatherView){
+        this.city = weatherView.getQuery().getResults().getChannel().getLocation().getCity();
+        this.temp = weatherView.getQuery().getResults().getChannel().getItem().getCondition().getTemp();
+        this.date = weatherView.getQuery().getResults().getChannel().getItem().getCondition().getDate();
     }
 }
