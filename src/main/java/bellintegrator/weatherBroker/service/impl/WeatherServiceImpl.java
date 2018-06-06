@@ -20,7 +20,7 @@ public class WeatherServiceImpl implements WeatherService {
     WeatherDao weatherDao;
 
     public void send(WeatherView wv){
-        jmsProducer.sendMessage("jms/topic/weather",wv);
+        jmsProducer.sendMessage("java:/jms/topic/weatherTopic",wv);
     }
 
     public List<WeatherEntity> loadByCity(String city){

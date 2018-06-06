@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({MessagingConfiguration.class, MessagingListnerConfiguration.class})
+@Import({MessagingConfiguration.class, MessagingListnerConfiguration.class, DBConfig.class})
 public class AppConfig {
 
 }

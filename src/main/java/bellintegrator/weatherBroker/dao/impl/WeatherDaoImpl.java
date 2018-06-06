@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -16,11 +17,9 @@ import java.util.List;
 @Repository
 public class WeatherDaoImpl implements WeatherDao {
 
-    private final EntityManager em;
-    @Autowired
-    public WeatherDaoImpl(EntityManager em){
-        this.em = em;
-    }
+    @PersistenceContext(unitName = "manager")
+    private  EntityManager em;
+
 
     @Override
     public void save(WeatherEntity we) {

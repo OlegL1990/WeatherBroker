@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 
+import javax.jms.ConnectionFactory;
 
 
 @Configuration
@@ -14,7 +15,7 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 public class MessagingListnerConfiguration {
 
     @Autowired
-    ActiveMQConnectionFactory connectionFactory;
+    ConnectionFactory connectionFactory;
 
     @Bean
     public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
